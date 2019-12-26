@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.4.10
+    restart: always
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=laravel
+    ports:
+      - 3306:3306
+  familytodo:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: familytodo
+    ports:
+      - 12280:80
+    depends_on:
+      - db
