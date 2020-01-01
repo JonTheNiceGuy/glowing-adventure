@@ -1,10 +1,10 @@
 <?php
 // *** To make HuMo-gen work, fill these lines properly! ***
 // *** Om HuMo-gen werkend te krijgen onderstaande regels GOED invullen! ***
-define("DATABASE_HOST",     'localhost');
-define("DATABASE_USERNAME", 'root');
-define("DATABASE_PASSWORD", '');
-define("DATABASE_NAME",     'humo-gen');
+define("DATABASE_HOST",     'db');
+define("DATABASE_USERNAME", 'a_user');
+define("DATABASE_PASSWORD", 'a_password');
+define("DATABASE_NAME",     'a_db');
 
 // *** DON'T CHANGE ANYTHING BELOW THIS LINE! ***
 // *** HIERONDER NIETS WIJZIGEN! ***

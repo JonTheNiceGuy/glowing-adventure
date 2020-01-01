@@ -1,21 +1,24 @@
 version: '3'
 services:
   db:
-    image: mariadb:10.4.10
-    restart: always
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=true
-      - MYSQL_DATABASE=laravel
-      - MYSQL_USER=laravel
-      - MYSQL_PASSWORD=laravel
-    ports:
-      - 3306:3306
-  familytodo:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    image: familytodo
+      dockerfile: Dockerfile/db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: a_root_pw
+      MYSQL_USER: a_user
+      MYSQL_PASSWORD: a_password
+      MYSQL_DATABASE: a_db
     ports:
-      - 12280:80
-    depends_on:
-      - db
+      - 3306:3306
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile/nginx
+    ports:
+      - 1980:80
+  fpm:
+    build: 
+      context: .
+      dockerfile: Dockerfile/fpm
