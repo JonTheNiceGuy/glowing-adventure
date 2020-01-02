@@ -10,8 +10,8 @@ services:
       MYSQL_USER: a_user
       MYSQL_PASSWORD: a_password
       MYSQL_DATABASE: a_db
-    ports:
-      - 3306:3306
+    expose:
+      - 3306
   nginx:
     build:
       context: .
