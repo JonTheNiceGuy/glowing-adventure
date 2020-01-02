@@ -1,6 +1,1 @@
 FROM mariadb:10.4.10
-RUN echo "CREATE USER ${MYSQL_USER}@'%' IDENTIFIED BY '${MYSQL_PASSWORD}'; \
-          CREATE DATABASE ${MYSQL_DATABASE}; \
-          GRANT ALL ON ${MYSQL_DATABASE} TO ${MYSQL_USER}@'%'; \
-          FLUSH PRIVILEGES; \
-          " > /docker-entrypoint-initdb.d/001_setup_user.sql
