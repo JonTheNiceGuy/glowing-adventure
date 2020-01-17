@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: a_db
+        - name: MYSQL_PASSWORD
+          value: a_password
+        - name: MYSQL_ROOT_PASSWORD
+          value: a_root_pw
+        - name: MYSQL_USER
+          value: a_user
+        image: localhost:32000/db
+        name: db
+        resources: {}
+      restartPolicy: Always

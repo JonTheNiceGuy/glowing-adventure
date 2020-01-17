@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: phpfpm
+  name: phpfpm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpfpm
+  template:
+    metadata:
+      labels:
+        app: phpfpm
+    spec:
+      containers:
+      - image: localhost:32000/phpfpm
+        name: phpfpm
+        resources: {}
+      restartPolicy: Always
