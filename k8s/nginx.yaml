@@ -21,3 +21,20 @@ spec:
         - containerPort: 80
         resources: {}
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  type: NodePort
+  ports:
+  - name: "1980"
+    port: 1980
+    targetPort: 80
+  selector:
+    app: nginx
+status:
+  loadBalancer: {}

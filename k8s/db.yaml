@@ -28,3 +28,19 @@ spec:
         name: db
         resources: {}
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  ports:
+  - name: mariadb
+    port: 3306
+    targetPort: 3306
+  selector:
+    app: db
+status:
+  loadBalancer: {}
