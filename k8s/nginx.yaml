@@ -29,9 +29,10 @@ metadata:
     app: nginx
   name: nginx
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - name: "1980"
+  - name: nginx
+    nodePort: 30000
     port: 1980
     targetPort: 80
   selector:
